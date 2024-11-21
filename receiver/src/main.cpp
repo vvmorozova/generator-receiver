@@ -4,5 +4,5 @@ int main()
 {
     Reader reader;
 
-    reader.readFromSender();
+    auto result = reader.readFromSender();
 }
