@@ -2,7 +2,9 @@
 
 int main() {
   Reader reader;
+  DBWorker dbWorker;
 
   while (true)
-    auto result = reader.readFromSender();
+    // MatrixData res = reader.readFromSender();
+    dbWorker.writeRecord(reader.readFromSender());
 }

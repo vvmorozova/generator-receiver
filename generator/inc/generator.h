@@ -5,7 +5,7 @@
 #include <random>
 #include <vector>
 
-#include <matrix.h>
+#include "utils.h"
 
 class Generator {
 public:

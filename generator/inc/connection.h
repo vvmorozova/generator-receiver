@@ -1,13 +1,13 @@
 #pragma once
 
+#include "utils.h"
 #include <arpa/inet.h>
 #include <cstring>
+#include <iostream>
 #include <string>
 #include <sys/socket.h>
 #include <unistd.h>
 #include <vector>
-#include <iostream>
-#include "matrix.h"
 
 class Sender {
 public:

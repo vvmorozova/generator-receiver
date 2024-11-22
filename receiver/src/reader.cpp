@@ -22,45 +22,18 @@ long long int getNumber(std::string &str) {
   str.erase(0, pos + delimiter.length());
   return number;
 }
+
 MatrixData messageToMatrix(char *message) {
   std::string str = message;
   MatrixData result;
-  std::string delimiter = " ";
-  size_t pos = 0;
-  int number;
-  int n = -1, m = -1, i = 0, j = 0;
   std::cout << "messageToMatrix" << std::endl;
   result.id = getNumber(str);
   result.genTime = getNumber(str);
   result.m = getNumber(str);
   result.n = getNumber(str);
   str = str.substr(1, str.length() - 2);
-  std::cout << "id " << result.id << " genTime " << result.genTime << " m "
-            << result.m << " n " << result.n << std::endl;
 
-  std::vector<int> numTemp;
-
-  while ((pos = str.find(delimiter)) != std::string::npos) {
-    number = stoi(str.substr(0, pos));
-    std::cout << "num " << number << std::endl;
-    if (n == -1)
-      n = number;
-    else if (m == -1)
-      m = number;
-    else {
-      numTemp.push_back(number);
-      if (++j == m) {
-        j = 0;
-        i++;
-        result.matrix.push_back(numTemp);
-        numTemp = {};
-      }
-    }
-    str.erase(0, pos + delimiter.length());
-  }
-
-  numTemp.push_back(number);
-  result.matrix.push_back(numTemp);
+  stringToMatrix(result, str, result.m, result.n);
 
   return result;
 }
