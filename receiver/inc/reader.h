@@ -1,16 +1,17 @@
 #pragma once
 
+#include "matrix.h"
 #include <iostream>
 #include <netinet/in.h>
+#include <string>
 #include <sys/socket.h>
 #include <unistd.h>
 #include <vector>
-#include <string>
 
 class Reader {
 public:
   Reader();
-  std::vector<std::vector<int>> readFromSender();
+  MatrixData readFromSender();
   ~Reader();
 
 private:

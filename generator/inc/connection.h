@@ -7,11 +7,12 @@
 #include <unistd.h>
 #include <vector>
 #include <iostream>
+#include "matrix.h"
 
 class Sender {
 public:
   Sender();
-  void sendMatrix(std::vector<std::vector<int>> matrix, int n, int m);
+  void sendMatrix(MatrixData matrixData);
   ~Sender() { close(sender_fd); };
 
 private:

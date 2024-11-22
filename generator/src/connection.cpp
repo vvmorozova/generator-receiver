@@ -6,23 +6,30 @@ Sender::Sender() {
   connect(sender_fd, (struct sockaddr *)&address, sizeof(address));
 }
 
-std::string matrixToMessage(std::vector<std::vector<int>> matrix, int n,
-                            int m) {
-  std::string str = std::to_string(n) + " " + std::to_string(m) + " ";
-  for (auto &i : matrix) {
+// [порядковый id матрицы][время генерации][m][n][тело матрицы]
+std::string matrixToMessage(MatrixData matrixData) {
+  std::string str = "[" + std::to_string(matrixData.id) + "]";
+  str += "[" + std::to_string(matrixData.genTime) + "]";
+  str += "[" + std::to_string(matrixData.m) + "]";
+  str += "[" + std::to_string(matrixData.n) + "]";
+
+  str += "[";
+  for (auto &i : matrixData.matrix) {
     for (auto &j : i) {
       str += std::to_string(j) + " ";
       std::cout << "j " << j << std::endl;
     }
   }
+  str += "]";
 
   std::cout << "str " << str << std::endl;
   return str;
 }
 
-void Sender::sendMatrix(std::vector<std::vector<int>> matrix, int n, int m) {
-  std::string strMsg = matrixToMessage(matrix, n, m);
+void Sender::sendMatrix(MatrixData matrixData) {
+  std::string strMsg = matrixToMessage(matrixData);
   const char *message = (strMsg).c_str();
-  std::cout << "generator matrix" << " " << message << std::endl;
+  std::cout << "generator matrix"
+            << " " << message << std::endl;
   send(sender_fd, message, strlen(message), 0);
 }

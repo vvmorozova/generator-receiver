@@ -1,12 +1,15 @@
 #pragma once
 
+#include <ctime>
+#include <iostream>
 #include <random>
 #include <vector>
-#include <iostream>
+
+#include <matrix.h>
 
 class Generator {
 public:
-  std::vector<std::vector<int>> generate_matrix(int n, int m);
+  MatrixData generate_matrix(int n, int m);
 
 private:
   unsigned long matrix_id = 0;

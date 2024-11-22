@@ -1,5 +1,6 @@
 #include "main.h"
 #define SLEEP_TIME 3
+
 int main(int argc, char **argv) {
   if (argc != 3 ) {
     std::cerr << "Wrong arguments number" << std::endl;
@@ -18,7 +19,7 @@ int main(int argc, char **argv) {
 
   while (true) {
     auto matrix = generator.generate_matrix(n, m);
-    sender.sendMatrix(matrix, n, m);
+    sender.sendMatrix(matrix);
     sleep(SLEEP_TIME);
   }
 }

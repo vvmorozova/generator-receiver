@@ -3,9 +3,9 @@
 #define MIN_VALUE -100
 #define MAX_VALUE 100
 
-std::vector<std::vector<int>> Generator::generate_matrix(int n, int m) {
+MatrixData Generator::generate_matrix(int n, int m) {
 
-  std::vector<std::vector<int>> result;
+  MatrixData result;
   std::mt19937 prng(std::random_device{}());
   std::uniform_int_distribution<int> dist(MIN_VALUE, MAX_VALUE);
 
@@ -15,8 +15,12 @@ std::vector<std::vector<int>> Generator::generate_matrix(int n, int m) {
     for (int j = 0; j < m; j++) {
       collumn.push_back(dist(prng));
     }
-    result.push_back(collumn);
+    result.matrix.push_back(collumn);
   }
+  result.id = matrix_id;
+  result.n = n;
+  result.m = m;
+  result.genTime = std::time(nullptr);
   matrix_id++;
 
   return result;

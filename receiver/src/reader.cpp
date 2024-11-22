@@ -13,15 +13,32 @@ Reader::~Reader() {
   close(server_fd);
 }
 
-std::vector<std::vector<int>> messageToMatrix(char *message) {
+long long int getNumber(std::string &str) {
+  std::string delimiter = "]";
+  size_t pos = 0;
+  long long int number;
+  pos = str.find(delimiter);
+  number = stoi(str.substr(1, pos));
+  str.erase(0, pos + delimiter.length());
+  return number;
+}
+MatrixData messageToMatrix(char *message) {
   std::string str = message;
-  std::vector<std::vector<int>> numbers;
+  MatrixData result;
   std::string delimiter = " ";
   size_t pos = 0;
   int number;
   int n = -1, m = -1, i = 0, j = 0;
   std::cout << "messageToMatrix" << std::endl;
-std::vector<int> numTemp;
+  result.id = getNumber(str);
+  result.genTime = getNumber(str);
+  result.m = getNumber(str);
+  result.n = getNumber(str);
+  str = str.substr(1, str.length() - 2);
+  std::cout << "id " << result.id << " genTime " << result.genTime << " m "
+            << result.m << " n " << result.n << std::endl;
+
+  std::vector<int> numTemp;
 
   while ((pos = str.find(delimiter)) != std::string::npos) {
     number = stoi(str.substr(0, pos));
@@ -30,29 +47,26 @@ std::vector<int> numTemp;
       n = number;
     else if (m == -1)
       m = number;
-    else
-    {
-        numTemp.push_back(number);
-        if (++j == m)
-        {
-            j = 0;
-            i++;
-            numbers.push_back(numTemp);
-            numTemp = {};
-
-        }
-
+    else {
+      numTemp.push_back(number);
+      if (++j == m) {
+        j = 0;
+        i++;
+        result.matrix.push_back(numTemp);
+        numTemp = {};
+      }
     }
     str.erase(0, pos + delimiter.length());
   }
-  // numbers[i][j] = number;
+
   numTemp.push_back(number);
-  numbers.push_back(numTemp);
-  return numbers;
+  result.matrix.push_back(numTemp);
+
+  return result;
 }
 
-std::vector<std::vector<int>> Reader::readFromSender() {
-  // char buffer[1024] = "2 2 0 1 2 1";
+MatrixData Reader::readFromSender() {
+  // char buffer[1024] = "[0][1732285013][2][2][-85 17 -81 -31 ]";
   char buffer[1024] = {0};
   std::cout << "Before read " << buffer;
   read(client_fd, buffer, 1024);
