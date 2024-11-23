@@ -115,3 +115,52 @@ void DBWorker::writeRecord(MatrixData matrixData) {
 
   return;
 }
+
+std::string timeToString(std::time_t time) {
+  std::tm *tmPtr = std::localtime(&time);
+  std::ostringstream oss;
+  oss << std::put_time(tmPtr, "[%Y-%m-%d %H:%M:%S]");
+  return oss.str();
+}
+
+std::string DBWorker::getLogs() {
+  int startTime = static_cast<int>(std::time(nullptr));
+  int endTime = startTime - 10;
+  const char *sqlQuery = "SELECT id, genTime FROM matrixes WHERE "
+                         "genTime BETWEEN ? AND ?;";
+  sqlite3_stmt *stmt = nullptr;
+
+  if (sqlite3_prepare_v2(db, sqlQuery, -1, &stmt, nullptr) != SQLITE_OK) {
+    std::cerr << "Failed to prepare statement: " << sqlite3_errmsg(db)
+              << std::endl;
+    return "";
+  }
+
+  if (sqlite3_bind_int(stmt, 1, endTime) != SQLITE_OK ||
+      sqlite3_bind_int(stmt, 2, startTime) != SQLITE_OK) {
+    std::cerr << "Failed to bind parameters: " << sqlite3_errmsg(db)
+              << std::endl;
+    sqlite3_finalize(stmt);
+    return "";
+  }
+
+  unsigned long startMatrixID = -1;
+  unsigned long endMatrixID = 0;
+  while (sqlite3_step(stmt) == SQLITE_ROW) {
+    endMatrixID = sqlite3_column_int(stmt, 0);
+    if (startMatrixID == -1)
+      startMatrixID = endMatrixID;
+  }
+
+  if (sqlite3_finalize(stmt) != SQLITE_OK) {
+    std::cerr << "Failed to finalize statement: " << sqlite3_errmsg(db)
+              << std::endl;
+  }
+
+  std::string strTime = timeToString(startTime);
+  std::string result =
+      strTime + " " + std::to_string(endMatrixID - startMatrixID + 1) +
+      " matrixes was received with id range [" + std::to_string(startMatrixID) +
+      "-" + std::to_string(endMatrixID) + "]";
+  return result;
+}

@@ -10,5 +10,7 @@ int main() {
 
     dbWorker.writeRecord(reader.readFromSender());
     dbWorker.readByIDRange(a, b);
+
+    std::cout << dbWorker.getLogs() << std::endl;
   }
 }
