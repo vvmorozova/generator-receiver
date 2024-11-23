@@ -4,7 +4,11 @@ int main() {
   Reader reader;
   DBWorker dbWorker;
 
+  int a = 0, b = 7;
   while (true)
-    // MatrixData res = reader.readFromSender();
+  {
+
     dbWorker.writeRecord(reader.readFromSender());
+    dbWorker.readByIDRange(a, b);
+  }
 }

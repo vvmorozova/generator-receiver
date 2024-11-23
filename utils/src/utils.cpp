@@ -32,6 +32,5 @@ void stringToMatrix(MatrixData &matrixData, std::string str, int m, int n) {
     str.erase(0, pos + delimiter.length());
   }
 
-  numTemp.push_back(number);
   matrixData.matrix.push_back(numTemp);
 }

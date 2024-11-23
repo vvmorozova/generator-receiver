@@ -3,6 +3,12 @@
 #define MIN_VALUE -100
 #define MAX_VALUE 100
 
+Generator::Generator() {
+  std::ifstream casheFile(".matrixID");
+  casheFile >> matrix_id;
+  casheFile.close();
+}
+
 MatrixData Generator::generate_matrix(int n, int m) {
 
   MatrixData result;
@@ -22,6 +28,11 @@ MatrixData Generator::generate_matrix(int n, int m) {
   result.m = m;
   result.genTime = std::time(nullptr);
   matrix_id++;
+
+  std::ofstream casheFile(".matrixID",
+                          std::ofstream::out | std::ofstream::trunc);
+  casheFile << matrix_id;
+  casheFile.close();
 
   return result;
 }
