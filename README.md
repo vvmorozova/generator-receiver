@@ -39,3 +39,11 @@ cmake ..
 ```
 make
 ```
+
+---
+if you have error
+qt.qpa.plugin: Could not find the Qt platform plugin "wayland" in "
+run
+```
+sudo apt install qt6-wayland
+```
