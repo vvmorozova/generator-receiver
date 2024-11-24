@@ -26,8 +26,6 @@ MatrixData messageToMatrix(char *message) {
   std::string str = message;
   MatrixData result;
   std::cout << "messageToMatrix " << message << std::endl;
-//  if (!message)
-//    return NULL;
   result.id = ulGetNumber(str);
   result.genTime = getNumber(str);
   result.m = getNumber(str);

@@ -6,105 +6,159 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>885</width>
-    <height>464</height>
+    <width>800</width>
+    <height>471</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>ReceiverUI</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QGridLayout" name="gridLayout">
-    <item row="0" column="0" colspan="2">
-     <widget class="QLabel" name="label_2">
-      <property name="text">
-       <string>Matrixes range</string>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="2">
-     <widget class="QLabel" name="label_3">
-      <property name="text">
-       <string>Matrix ID</string>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="4" rowspan="2">
-     <widget class="QLabel" name="label">
-      <property name="text">
-       <string>Logs</string>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="0" rowspan="2">
-     <widget class="QSpinBox" name="spinBoxIDFrom"/>
-    </item>
-    <item row="1" column="1" rowspan="2">
-     <widget class="QSpinBox" name="spinBoxIDTo"/>
-    </item>
-    <item row="1" column="2" rowspan="2">
-     <widget class="QSpinBox" name="spinBoxTransposeID"/>
-    </item>
-    <item row="2" column="4" rowspan="4">
-     <widget class="QPlainTextEdit" name="logsTextEdit"/>
-    </item>
-    <item row="3" column="0" colspan="2">
-     <widget class="QPushButton" name="showMatrixesRangeBtn">
-      <property name="text">
-       <string>Show</string>
-      </property>
-      <property name="flat">
-       <bool>false</bool>
-      </property>
-     </widget>
-    </item>
-    <item row="3" column="2">
-     <widget class="QPushButton" name="transposeBtn">
-      <property name="text">
-       <string>Transpose</string>
-      </property>
-     </widget>
-    </item>
-    <item row="4" column="0" rowspan="2" colspan="2">
-     <widget class="QPlainTextEdit" name="rangeTextEdit"/>
-    </item>
-    <item row="4" column="2">
-     <widget class="QLabel" name="label_4">
-      <property name="text">
-       <string>Original</string>
-      </property>
-     </widget>
-    </item>
-    <item row="4" column="3">
-     <widget class="QLabel" name="label_5">
-      <property name="text">
-       <string>Transposed</string>
-      </property>
-     </widget>
-    </item>
-    <item row="5" column="2">
-     <widget class="QPlainTextEdit" name="beforeTextEdit"/>
-    </item>
-    <item row="5" column="3">
-     <widget class="QPlainTextEdit" name="afterTextEdit"/>
-    </item>
-   </layout>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>141</width>
+      <height>18</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>matrixes range by ID</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>160</x>
+      <y>10</y>
+      <width>121</width>
+      <height>18</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>transpose matrix</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>520</x>
+      <y>10</y>
+      <width>66</width>
+      <height>18</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>logs</string>
+    </property>
+   </widget>
+   <widget class="QPlainTextEdit" name="rangeTextEdit">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>120</y>
+      <width>141</width>
+      <height>291</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPlainTextEdit" name="beforeTextEdit">
+    <property name="geometry">
+     <rect>
+      <x>160</x>
+      <y>120</y>
+      <width>161</width>
+      <height>291</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPlainTextEdit" name="afterTextEdit">
+    <property name="geometry">
+     <rect>
+      <x>330</x>
+      <y>120</y>
+      <width>181</width>
+      <height>291</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPlainTextEdit" name="logsTextEdit">
+    <property name="geometry">
+     <rect>
+      <x>520</x>
+      <y>40</y>
+      <width>271</width>
+      <height>371</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QSpinBox" name="spinBoxIDFrom">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>30</y>
+      <width>141</width>
+      <height>27</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QSpinBox" name="spinBoxIDTo">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>60</y>
+      <width>141</width>
+      <height>27</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QSpinBox" name="spinBoxTransposeID">
+    <property name="geometry">
+     <rect>
+      <x>160</x>
+      <y>30</y>
+      <width>111</width>
+      <height>27</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="showMatrixesRangeBtn">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>90</y>
+      <width>141</width>
+      <height>26</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Show</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="transposeBtn">
+    <property name="geometry">
+     <rect>
+      <x>160</x>
+      <y>90</y>
+      <width>161</width>
+      <height>26</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Transpose</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>885</width>
+     <width>800</width>
      <height>23</height>
     </rect>
    </property>
-   <widget class="QMenu" name="menuReceiver">
-    <property name="title">
-     <string>Receiver</string>
-    </property>
-   </widget>
-   <addaction name="menuReceiver"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>

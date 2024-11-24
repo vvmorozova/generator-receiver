@@ -1,12 +1,9 @@
 #ifndef RECEIVERUI_H
 #define RECEIVERUI_H
 
-#include "sql.h"
-
 #include <QMainWindow>
-#include <QSpinBox>
-
-#include <vector>
+#include "utils.h"
+#include "sql.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -28,10 +25,5 @@ private slots:
 
 private:
   Ui::ReceiverUI *ui;
-
-protected:
-  // QSpinBox *spinBoxIDFrom;
-  // QSpinBox *spinBoxIDTo;
-  // QSpinBox *spinBoxTransposeID
 };
 #endif // RECEIVERUI_H
