@@ -17,19 +17,15 @@ std::string matrixToMessage(MatrixData matrixData) {
   for (auto &i : matrixData.matrix) {
     for (auto &j : i) {
       str += std::to_string(j) + " ";
-      std::cout << "j " << j << std::endl;
     }
   }
   str += "]";
 
-  std::cout << "str " << str << std::endl;
   return str;
 }
 
 void Sender::sendMatrix(MatrixData matrixData) {
   std::string strMsg = matrixToMessage(matrixData);
   const char *message = (strMsg).c_str();
-  std::cout << "generator matrix"
-            << " " << message << std::endl;
   send(sender_fd, message, strlen(message), 0);
 }

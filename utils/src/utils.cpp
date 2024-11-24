@@ -19,7 +19,6 @@ void stringToMatrix(MatrixData &matrixData, std::string str, int m, int n) {
 
   while ((pos = str.find(delimiter)) != std::string::npos) {
     number = stoi(str.substr(0, pos));
-    std::cout << "num " << number << std::endl;
     numTemp.push_back(number);
 
     if (++j == m) {

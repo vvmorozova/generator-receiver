@@ -1,4 +1,5 @@
 #include "utils.h"
+#include <QDebug>
 
 std::string matrixToString(MatrixData matrixData) {
   std::string str;
@@ -16,21 +17,19 @@ void stringToMatrix(MatrixData &matrixData, std::string str, int m, int n) {
   int number;
   int i = 0, j = 0;
   std::vector<int> numTemp;
-
   while ((pos = str.find(delimiter)) != std::string::npos) {
     number = stoi(str.substr(0, pos));
-    std::cout << "num " << number << std::endl;
     numTemp.push_back(number);
 
     if (++j == m) {
       j = 0;
       i++;
-      matrixData.matrix.push_back(numTemp);
+      matrixData.matrix.push_back(std::move(numTemp));
       numTemp = {};
     }
 
     str.erase(0, pos + delimiter.length());
   }
 
-  matrixData.matrix.push_back(numTemp);
+  matrixData.matrix.push_back(std::move(numTemp));
 }

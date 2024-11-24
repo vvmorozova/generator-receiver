@@ -408,7 +408,10 @@
  mdp:/usr/include/x86_64-linux-gnu/qt6/QtGui/qtransform.h
  mdp:/usr/include/x86_64-linux-gnu/qt6/QtGui/qwindowdefs.h
  mdp:/usr/include/x86_64-linux-gnu/qt6/QtWidgets/QMainWindow
+ mdp:/usr/include/x86_64-linux-gnu/qt6/QtWidgets/QMessageBox
+ mdp:/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qdialog.h
  mdp:/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qmainwindow.h
+ mdp:/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qmessagebox.h
  mdp:/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qsizepolicy.h
  mdp:/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtabwidget.h
  mdp:/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtwidgets-config.h

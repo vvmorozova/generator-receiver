@@ -2,8 +2,10 @@
 #define RECEIVERUI_H
 
 #include <QMainWindow>
+#include <QMessageBox>
 #include "utils.h"
 #include "sql.h"
+#include <vector>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {

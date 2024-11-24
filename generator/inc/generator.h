@@ -6,12 +6,13 @@
 #include <random>
 #include <vector>
 
+#include "generatorSql.h"
 #include "utils.h"
 
 class Generator {
 public:
-  MatrixData generate_matrix(int n, int m);
   Generator();
+  MatrixData generate_matrix(int n, int m);
 
 private:
   unsigned long matrix_id;

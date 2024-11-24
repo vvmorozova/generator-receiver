@@ -60,13 +60,14 @@ std::vector<MatrixData> DBWorker::readByIDRange(unsigned long from,
     currMatrixData.genTime = sqlite3_column_int(stmt, 1);
     currMatrixData.m = sqlite3_column_int(stmt, 2);
     currMatrixData.n = sqlite3_column_int(stmt, 3);
-
     std::string matrixChar = std::string(
         reinterpret_cast<const char *>(sqlite3_column_text(stmt, 4)));
+    if (matrixChar == "" || matrixChar == " ")
+        continue;
     stringToMatrix(currMatrixData, matrixChar, currMatrixData.m,
                    currMatrixData.n);
 
-    result.push_back(currMatrixData);
+    result.push_back(std::move(currMatrixData));
     // std::cout << "ID: " << currMatrixData.id
     //           << ", GenTime: " << currMatrixData.genTime
     //           << ", M: " << currMatrixData.m << ", N: " << currMatrixData.n

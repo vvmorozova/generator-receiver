@@ -4,9 +4,8 @@
 #define MAX_VALUE 100
 
 Generator::Generator() {
-  std::ifstream casheFile(".matrixID");
-  casheFile >> matrix_id;
-  casheFile.close();
+  generatorDBWorker dbWorker;
+  matrix_id = dbWorker.getLastID();
 }
 
 MatrixData Generator::generate_matrix(int n, int m) {
@@ -15,7 +14,6 @@ MatrixData Generator::generate_matrix(int n, int m) {
   std::mt19937 prng(std::random_device{}());
   std::uniform_int_distribution<int> dist(MIN_VALUE, MAX_VALUE);
 
-  std::cout << "in genenrate matrix " << std::endl;
   for (int i = 0; i < n; i++) {
     std::vector<int> collumn;
     for (int j = 0; j < m; j++) {
@@ -28,11 +26,6 @@ MatrixData Generator::generate_matrix(int n, int m) {
   result.m = m;
   result.genTime = std::time(nullptr);
   matrix_id++;
-
-  std::ofstream casheFile(".matrixID",
-                          std::ofstream::out | std::ofstream::trunc);
-  casheFile << matrix_id;
-  casheFile.close();
 
   return result;
 }

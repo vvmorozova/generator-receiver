@@ -7,8 +7,7 @@ file(GLOB SRC_FILES ${CMAKE_CURRENT_SOURCE_DIR}/src/*cpp)
 add_executable(${PROJECT_NAME} ${SRC_FILES})
 target_link_libraries(${PROJECT_NAME} PRIVATE utils)
 
-add_custom_command(
-    TARGET ${PROJECT_NAME} PRE_BUILD
-    COMMAND ${CMAKE_COMMAND} -E echo "0" > ${CMAKE_BINARY_DIR}/.matrixID
-    COMMENT "Creating .matrixID file with value 0"
-)
+find_package (SQLite3 REQUIRED)
+include_directories(${SQLITE3_INCLUDE_DIRS})
+target_link_libraries (${PROJECT_NAME} ${SQLITE3_LIBRARIES})
+target_link_libraries(${PROJECT_NAME} LINK_PUBLIC sqlite3)
