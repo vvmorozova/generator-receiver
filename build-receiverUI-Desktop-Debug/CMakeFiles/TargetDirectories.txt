@@ -1,0 +1,8 @@
+/home/vasuyan/Documents/generator-receiver/build-receiverUI-Desktop-Debug/CMakeFiles/receiverUI.dir
+/home/vasuyan/Documents/generator-receiver/build-receiverUI-Desktop-Debug/CMakeFiles/edit_cache.dir
+/home/vasuyan/Documents/generator-receiver/build-receiverUI-Desktop-Debug/CMakeFiles/rebuild_cache.dir
+/home/vasuyan/Documents/generator-receiver/build-receiverUI-Desktop-Debug/CMakeFiles/list_install_components.dir
+/home/vasuyan/Documents/generator-receiver/build-receiverUI-Desktop-Debug/CMakeFiles/install.dir
+/home/vasuyan/Documents/generator-receiver/build-receiverUI-Desktop-Debug/CMakeFiles/install/local.dir
+/home/vasuyan/Documents/generator-receiver/build-receiverUI-Desktop-Debug/CMakeFiles/install/strip.dir
+/home/vasuyan/Documents/generator-receiver/build-receiverUI-Desktop-Debug/CMakeFiles/receiverUI_autogen.dir
