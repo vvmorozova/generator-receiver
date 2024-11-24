@@ -4,6 +4,9 @@
 ReceiverUI::ReceiverUI(QWidget *parent)
     : QMainWindow(parent), ui(new Ui::ReceiverUI) {
   ui->setupUi(this);
+  QTimer *timer = new QTimer(this);
+  connect(timer, &QTimer::timeout, this, &ReceiverUI::updatePlainText);
+  timer->start(10000);
 }
 
 ReceiverUI::~ReceiverUI() { delete ui; }
@@ -79,3 +82,9 @@ void ReceiverUI::on_transposeBtn_clicked() {
 
   ui->afterTextEdit->setPlainText(longLine);
 }
+
+void ReceiverUI::updatePlainText() {
+        DBWorker dbWorker;
+        std::string logs = dbWorker.getLogs();
+        ui->logsTextEdit->appendPlainText(QString::fromStdString(logs));
+    }

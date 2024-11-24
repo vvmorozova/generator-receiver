@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <QMessageBox>
+#include <QTimer>
 #include "utils.h"
 #include "sql.h"
 #include <vector>
@@ -24,6 +25,7 @@ private slots:
   void on_showMatrixesRangeBtn_clicked();
 
   void on_transposeBtn_clicked();
+  void updatePlainText();
 
 private:
   Ui::ReceiverUI *ui;
