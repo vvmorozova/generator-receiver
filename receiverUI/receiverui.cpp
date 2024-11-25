@@ -26,7 +26,7 @@ void ReceiverUI::on_showMatrixesRangeBtn_clicked() {
 
   QString longLine = "";
   for (auto matrixData : matrixesRangeData) {
-    longLine += QString::number(matrixData.id) + "\n";
+    longLine += "[" + QString::number(matrixData.id) + "]\n";
     for (auto i : matrixData.matrix) {
 
       QString line = "";
