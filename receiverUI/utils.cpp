@@ -24,9 +24,9 @@ bool isNumber(std::string str) {
     }
   }
 
-  if (flag == true) { 
+  if (flag == true) {
     return true;
-  } else { 
+  } else {
     return false;
   }
 }
@@ -39,10 +39,7 @@ void stringToMatrix(MatrixData &matrixData, std::string str, int m, int n) {
   std::vector<int> numTemp;
   while ((pos = str.find(delimiter)) != std::string::npos) {
     std::string subs = str.substr(0, pos);
-    std::cout << "subs " << subs << " " << isNumber(subs) << std::endl;
-    // if (!isNumber(subs))
-    //   return;
-      number = stoi(subs);
+    number = stoi(subs);
     numTemp.push_back(number);
 
     if (++j == m) {

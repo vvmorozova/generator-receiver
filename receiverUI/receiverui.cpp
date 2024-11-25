@@ -26,7 +26,7 @@ void ReceiverUI::on_showMatrixesRangeBtn_clicked() {
 
   QString longLine = "";
   for (auto matrixData : matrixesRangeData) {
-    longLine = QString::number(matrixData.id) + "\n";
+    longLine += QString::number(matrixData.id) + "\n";
     for (auto i : matrixData.matrix) {
 
       QString line = "";
@@ -38,7 +38,7 @@ void ReceiverUI::on_showMatrixesRangeBtn_clicked() {
   }
   
   ui->rangeTextEdit->setPlainText(longLine);
-  qDebug() << "longLine:" << longLine;
+  qDebug() << "longLine:" << longLine << " len " << matrixesRangeData.size();
   qDebug() << "spinBoxIDFrom:" << from;
 }
 

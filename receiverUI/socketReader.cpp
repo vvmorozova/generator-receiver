@@ -11,8 +11,6 @@ long long int getNumber(std::string &str) {
 
   pos = str.find(delimiter);
   std::string subs = str.substr(1, pos);
-  // if (!isNumber(subs))
-  //   return 0;
   number = stoi(str.substr(1, pos));
   str.erase(0, pos + delimiter.length());
   return number;
@@ -58,9 +56,7 @@ void SocketReader::onReadyRead() {
 
   DBWorker worker;
   auto qdata = clientSocket->readAll();
-  qDebug() << "qdata " << qdata;
   auto str = (qdata).data();
-  qDebug() << "(clientSocket->readAll()).data()" << str;
   MatrixData matrixData = messageToMatrix(str);
   worker.writeRecord(matrixData);
 }
