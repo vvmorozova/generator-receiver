@@ -21,7 +21,7 @@ int main(int argc, char **argv) {
   while (true) {
     auto matrix = generator.generate_matrix(n, m);
     sender.sendMatrix(matrix);
-    sleep(SLEEP_TIME);
-    // usleep(sleepTime);
+    // sleep(SLEEP_TIME);
+    usleep(sleepTime);
   }
 }

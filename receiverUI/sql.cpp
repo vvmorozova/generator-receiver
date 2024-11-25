@@ -103,8 +103,6 @@ void DBWorker::writeRecord(MatrixData matrixData) {
   sqlite3_bind_int(stmt, 4, matrixData.n);
   sqlite3_bind_text(stmt, 5, matrixToString(matrixData).c_str(), -1,
                     SQLITE_STATIC);
-  std::cout << "matrixToString(matrixData)"
-            << matrixToString(matrixData) << std::endl;
   rc = sqlite3_step(stmt);
   if (rc != SQLITE_DONE) {
     std::cerr << "Failed to add record to db: " << sqlite3_errmsg(db)

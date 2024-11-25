@@ -38,8 +38,8 @@ void ReceiverUI::on_showMatrixesRangeBtn_clicked() {
   }
   
   ui->rangeTextEdit->setPlainText(longLine);
-  qDebug() << "longLine:" << longLine << " len " << matrixesRangeData.size();
-  qDebug() << "spinBoxIDFrom:" << from;
+  // qDebug() << "longLine:" << longLine << " len " << matrixesRangeData.size();
+  // qDebug() << "spinBoxIDFrom:" << from;
 }
 
 void ReceiverUI::on_transposeBtn_clicked() {

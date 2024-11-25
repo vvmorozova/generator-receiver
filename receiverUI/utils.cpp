@@ -14,7 +14,7 @@ std::string matrixToString(MatrixData matrixData) {
 bool isNumber(std::string str) {
   bool flag = true;
   int len = str.length();
-  for (int i = 0; i < len; i++) {
+  for (int i = 0; i < len && str[i] != ' '; i++) {
     if (i == 0 && str[i] == '-' && len > 2) {
       continue;
     }
@@ -39,7 +39,11 @@ void stringToMatrix(MatrixData &matrixData, std::string str, int m, int n) {
   std::vector<int> numTemp;
   while ((pos = str.find(delimiter)) != std::string::npos) {
     std::string subs = str.substr(0, pos);
-    number = stoi(subs);
+    // std::cout << " SUBS2 " << subs << std::endl;
+    if (!isNumber(subs))
+      number = 0;
+    else
+      number = stoi(subs);
     numTemp.push_back(number);
 
     if (++j == m) {

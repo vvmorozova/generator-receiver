@@ -5,13 +5,17 @@ long long int getNumber(std::string &str) {
   size_t pos = 0;
   long long int number;
 
-  std::cout << "getNumber str " << str << std::endl;
+  // std::cout << "getNumber str " << str << std::endl;
   if (str == "")
     return 0;
 
   pos = str.find(delimiter);
   std::string subs = str.substr(1, pos);
-  number = stoi(str.substr(1, pos));
+  std::cout << " SUBS " << subs << std::endl;
+  if (!isNumber(subs))
+    number = 0;
+  else
+    number = stoi(subs);
   str.erase(0, pos + delimiter.length());
   return number;
 }
@@ -36,16 +40,10 @@ MatrixData messageToMatrix(char *message) {
   result.genTime = ulGetNumber(str);
   result.m = getNumber(str);
   result.n = getNumber(str);
-  str = str.substr(1, str.length() - 2);
-  std::cout << "messageToMatrix1 " << str << " m " << result.m << " n "
+  std::cout << " messageToMatrix id " << result.id << " m " << result.m << " n "
             << result.n << std::endl;
+  str = str.substr(1, str.length() - 2);
   stringToMatrix(result, str, result.m, result.n);
-  std::cout << "result.matrix" << std::endl;
-  for (auto i : result.matrix) {
-    for (auto j : i)
-      std::cout << j << " ";
-  }
-  std::cout << std::endl;
   return result;
 }
 
