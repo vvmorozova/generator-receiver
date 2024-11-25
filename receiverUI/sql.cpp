@@ -63,7 +63,7 @@ std::vector<MatrixData> DBWorker::readByIDRange(unsigned long from,
     std::string matrixChar = std::string(
         reinterpret_cast<const char *>(sqlite3_column_text(stmt, 4)));
     if (matrixChar == "" || matrixChar == " ")
-        continue;
+      continue;
     stringToMatrix(currMatrixData, matrixChar, currMatrixData.m,
                    currMatrixData.n);
 
@@ -103,13 +103,14 @@ void DBWorker::writeRecord(MatrixData matrixData) {
   sqlite3_bind_int(stmt, 4, matrixData.n);
   sqlite3_bind_text(stmt, 5, matrixToString(matrixData).c_str(), -1,
                     SQLITE_STATIC);
-
+  std::cout << "matrixToString(matrixData)"
+            << matrixToString(matrixData) << std::endl;
   rc = sqlite3_step(stmt);
   if (rc != SQLITE_DONE) {
     std::cerr << "Failed to add record to db: " << sqlite3_errmsg(db)
               << std::endl;
   } else {
-    std::cout << "Record added to db!" << std::endl;
+    std::cout << "Record added to db! id " << matrixData.id << std::endl;
   }
 
   sqlite3_finalize(stmt);

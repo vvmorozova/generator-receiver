@@ -21,6 +21,8 @@ std::string matrixToMessage(MatrixData matrixData) {
   }
   str += "]";
 
+  std::cout << "connection matrixToMessage" << str << std::endl;
+
   return str;
 }
 

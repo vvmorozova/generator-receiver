@@ -36,7 +36,9 @@ void ReceiverUI::on_showMatrixesRangeBtn_clicked() {
       longLine += line + "\n";
     }
   }
+  
   ui->rangeTextEdit->setPlainText(longLine);
+  qDebug() << "longLine:" << longLine;
   qDebug() << "spinBoxIDFrom:" << from;
 }
 

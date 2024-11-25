@@ -1,9 +1,9 @@
 #pragma once
 
 #include <ctime>
-#include <vector>
-#include <string>
 #include <iostream>
+#include <string>
+#include <vector>
 
 struct MatrixData {
   int n, m;
@@ -14,3 +14,4 @@ struct MatrixData {
 
 std::string matrixToString(MatrixData matrixData);
 void stringToMatrix(MatrixData &matrixData, std::string str, int m, int n);
+bool isNumber(std::string str);
