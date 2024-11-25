@@ -12,7 +12,7 @@ DBWorker::DBWorker() {
 
   const char *createTableSQL = R"(
         CREATE TABLE IF NOT EXISTS matrixes (
-            id INTEGER NOT NULL,
+            id INTEGER PRIMARY KEY NOT NULL,
             genTime INTEGER NOT NULL,
             m INTEGER NOT NULL,
             n INTEGER NOT NULL,
