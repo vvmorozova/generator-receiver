@@ -26,7 +26,7 @@
 данных;
 - Можно добавить дополнительный функционал на усмотрение разработчика.
  
-# Как запустить
+# Как собрать
 
 ```
 mkdir build && cd build
@@ -40,10 +40,18 @@ cmake ..
 make
 ```
 
+# Как запустить
+```
+./receiverUI/receiverUI
+```
+Окно не откроется сразу, программа ожидает соединения с генератором:
+```
+./generator/generator <n> <m>
+```
 ---
-if you have error
+Если у вас появилась ошибка
 qt.qpa.plugin: Could not find the Qt platform plugin "wayland" in "
-run
+то нужно выполнить эту команду:
 ```
 sudo apt install qt6-wayland
 ```
